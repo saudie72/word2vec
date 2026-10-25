@@ -16,49 +16,49 @@ function mulberry32(seed) {
 // Each item is a list of slots; each slot lists the ways buyers write it.
 // The first variant is the most common; abbreviations appear less often.
 const SAMPLE_CATALOG = [
-  { cat: "Fasteners", contract: "Coastal Industrial Supply", share: 0.2, items: [
+  { cat: "Fasteners", contract: "Acme Fastener Co.", share: 0.2, items: [
     { price: [38, 70], slots: [["hex", "hx", "hexagon"], ["screw", "scrw", "scr"], ["m8", "m10", "m12"], ["stainless", "ss", "stnls"], ["box 100", "bx 100", "pk 100"]] },
     { price: [22, 45], slots: [["lock", "lck"], ["washer", "wshr", "wash"], ["m8", "m10", "m12"], ["stainless", "ss"], ["box 100", "bx 100"]] },
     { price: [30, 60], slots: [["anchor", "anch"], ["bolt", "blt"], ["concrete", "conc"], ["3/8 inch", "3/8in"], ["box 50", "bx 50"]] },
   ]},
-  { cat: "Safety gear (PPE)", contract: "Sunshine Safety Co.", share: 0.25, items: [
+  { cat: "Safety gear (PPE)", contract: "Example Safety Supply", share: 0.25, items: [
     { price: [9, 16], slots: [["nitrile", "nitr", "nitril"], ["gloves", "glvs", "glove"], ["large", "lg", "medium", "med"], ["box 100", "bx 100"]] },
     { price: [8, 14], slots: [["safety", "sfty", "saf"], ["vest", "vst"], ["hi vis", "high visibility", "hivis"], ["class 2", "cl 2"], ["yellow", "ylw", "orange"]] },
     { price: [12, 25], slots: [["hard", "hrd"], ["hat", "ht"], ["type 1", "typ 1"], ["white", "wht", "yellow"]] },
     { price: [4, 9], slots: [["safety", "sfty"], ["glasses", "glss", "eyewear"], ["clear", "clr"], ["anti fog", "antifog"]] },
   ]},
-  { cat: "Office supplies", contract: "Everglades Office Products", share: 0.88, items: [
+  { cat: "Office supplies", contract: "Sample Office Products", share: 0.88, items: [
     { price: [42, 58], slots: [["copy", "cpy"], ["paper", "ppr", "pap"], ["letter", "ltr", "8.5x11"], ["case 10 ream", "cs 10 rm"]] },
     { price: [65, 140], slots: [["toner", "tnr", "toner"], ["cartridge", "cart", "ctg"], ["black", "blk", "cyan"], ["high yield", "hy"]] },
     { price: [6, 14], slots: [["file", "fl"], ["folders", "fldr", "folder"], ["manila", "man"], ["letter", "ltr"], ["box 100", "bx 100"]] },
   ]},
-  { cat: "IT hardware", contract: "Biscayne Tech Solutions", share: 0.92, items: [
+  { cat: "IT hardware", contract: "Demo Tech Solutions", share: 0.92, items: [
     { price: [850, 1400], slots: [["laptop", "ltop", "notebook"], ["computer", "comp", "pc"], ["14 inch", "14in", "15 inch"], ["16gb", "16 gb"], ["ram"]] },
     { price: [160, 280], slots: [["monitor", "mntr", "mon"], ["24 inch", "24in", "27 inch"], ["led", "lcd"], ["display", "disp"]] },
     { price: [18, 40], slots: [["usb", "usb c"], ["keyboard", "kybd", "kbd"], ["wired", "wrd"], ["black", "blk"]] },
   ]},
-  { cat: "Janitorial", contract: "Tropic Janitorial Supply", share: 0.4, items: [
+  { cat: "Janitorial", contract: "Mock Janitorial Supply", share: 0.4, items: [
     { price: [28, 48], slots: [["trash", "trsh", "can"], ["liners", "lnrs", "bags"], ["33 gal", "33gal", "55 gal"], ["black", "blk", "clear"], ["case 250", "cs 250"]] },
     { price: [14, 30], slots: [["disinfectant", "disinf", "dsnf"], ["cleaner", "clnr", "spray"], ["1 gal", "gallon", "gal"], ["case 4", "cs 4"]] },
     { price: [35, 60], slots: [["paper", "ppr"], ["towels", "twls", "towel"], ["roll", "rl"], ["case 12", "cs 12"]] },
   ]},
-  { cat: "Fleet parts", contract: "Palmetto Fleet Parts", share: 0.7, items: [
+  { cat: "Fleet parts", contract: "Acme Fleet Parts", share: 0.7, items: [
     { price: [60, 140], slots: [["brake", "brk", "brke"], ["pads", "pd", "pad set"], ["front", "frt", "rear"], ["pickup", "pu", "sedan"]] },
     { price: [55, 90], slots: [["motor", "mtr", "eng"], ["oil", "oil"], ["5w30", "5w 30", "10w30"], ["case 12 quart", "cs 12 qt"]] },
     { price: [140, 260], slots: [["tire", "tyre", "tires"], ["all season", "all ssn", "a/s"], ["265/70r17", "245/75r16"]] },
     { price: [18, 40], slots: [["oil", "oil"], ["filter", "fltr", "flt"], ["spin on", "spinon"], ["pickup", "pu", "sedan"]] },
   ]},
-  { cat: "Water and sewer pipe", contract: "Gulfstream Pipe & Supply", share: 0.85, items: [
+  { cat: "Water and sewer pipe", contract: "Example Pipe & Supply", share: 0.85, items: [
     { price: [90, 240], slots: [["pvc", "pvc"], ["pipe", "pp", "pip"], ["schedule 40", "sch 40", "sch40"], ["4 inch", "4in", "6 inch"], ["20 ft", "20ft"]] },
     { price: [120, 380], slots: [["ductile", "duct", "di"], ["iron", "irn"], ["fitting", "ftg", "fttg"], ["8 inch", "8in", "12 inch"], ["mj", "mech joint"]] },
     { price: [45, 120], slots: [["gate", "gt"], ["valve", "vlv", "valv"], ["brass", "brs"], ["2 inch", "2in"]] },
   ]},
-  { cat: "Landscaping", contract: "Keystone Landscape Supply", share: 0.35, items: [
+  { cat: "Landscaping", contract: "Sample Landscape Supply", share: 0.35, items: [
     { price: [28, 45], slots: [["pine", "pn"], ["bark", "brk"], ["mulch", "mlch", "mulch"], ["cubic yard", "cu yd", "cy"]] },
     { price: [22, 40], slots: [["fertilizer", "fert", "fertlzr"], ["16-4-8", "16 4 8"], ["50 lb", "50lb"], ["bag", "bg"]] },
     { price: [8, 18], slots: [["sod", "sd"], ["st augustine", "st aug"], ["pallet", "plt"]] },
   ]},
-  { cat: "Uniforms", contract: "Harbor Uniforms", share: 0.85, items: [
+  { cat: "Uniforms", contract: "Demo Uniform Co.", share: 0.85, items: [
     { price: [18, 32], slots: [["uniform", "unif", "uni"], ["shirt", "shrt"], ["polo", "pl"], ["navy", "nvy", "white"], ["embroidered", "embr"]] },
     { price: [90, 160], slots: [["safety", "sfty"], ["boots", "bts", "boot"], ["steel toe", "stl toe"], ["size 10", "sz 10", "size 9"]] },
     { price: [24, 40], slots: [["work", "wrk"], ["pants", "pnts", "trousers"], ["navy", "nvy", "khaki"], ["32x32", "34x32"]] },
@@ -66,35 +66,35 @@ const SAMPLE_CATALOG = [
 ];
 
 const SAMPLE_DEPARTMENTS = [
-  "Water & Sewer", "Transportation & Public Works", "Parks & Recreation", "Police",
-  "Fire Rescue", "Internal Services", "Solid Waste", "Aviation", "Seaport",
-  "Libraries", "Corrections", "Transit",
+  "Dept 01 – Utilities", "Dept 02 – Roads", "Dept 03 – Parks", "Dept 04 – Public Safety",
+  "Dept 05 – Fire", "Dept 06 – Facilities", "Dept 07 – Waste", "Dept 08 – Airport", "Dept 09 – Port",
+  "Dept 10 – Library", "Dept 11 – Corrections", "Dept 12 – Transit",
 ];
 
 // Which departments buy from which categories (fictional but plausible).
 const SAMPLE_BUYERS = {
-  "Fasteners": ["Water & Sewer", "Transportation & Public Works", "Internal Services", "Aviation", "Seaport", "Transit", "Parks & Recreation"],
-  "Safety gear (PPE)": ["Water & Sewer", "Transportation & Public Works", "Solid Waste", "Parks & Recreation", "Aviation", "Seaport", "Fire Rescue", "Corrections", "Transit"],
+  "Fasteners": ["Dept 01 – Utilities", "Dept 02 – Roads", "Dept 06 – Facilities", "Dept 08 – Airport", "Dept 09 – Port", "Dept 12 – Transit", "Dept 03 – Parks"],
+  "Safety gear (PPE)": ["Dept 01 – Utilities", "Dept 02 – Roads", "Dept 07 – Waste", "Dept 03 – Parks", "Dept 08 – Airport", "Dept 09 – Port", "Dept 05 – Fire", "Dept 11 – Corrections", "Dept 12 – Transit"],
   "Office supplies": SAMPLE_DEPARTMENTS,
   "IT hardware": SAMPLE_DEPARTMENTS,
-  "Janitorial": ["Internal Services", "Libraries", "Parks & Recreation", "Corrections", "Aviation", "Transit", "Police"],
-  "Fleet parts": ["Internal Services", "Police", "Fire Rescue", "Solid Waste", "Transit", "Water & Sewer"],
-  "Water and sewer pipe": ["Water & Sewer", "Transportation & Public Works", "Parks & Recreation"],
-  "Landscaping": ["Parks & Recreation", "Transportation & Public Works", "Aviation", "Seaport", "Libraries"],
-  "Uniforms": ["Police", "Fire Rescue", "Corrections", "Solid Waste", "Transit", "Parks & Recreation", "Water & Sewer"],
+  "Janitorial": ["Dept 06 – Facilities", "Dept 10 – Library", "Dept 03 – Parks", "Dept 11 – Corrections", "Dept 08 – Airport", "Dept 12 – Transit", "Dept 04 – Public Safety"],
+  "Fleet parts": ["Dept 06 – Facilities", "Dept 04 – Public Safety", "Dept 05 – Fire", "Dept 07 – Waste", "Dept 12 – Transit", "Dept 01 – Utilities"],
+  "Water and sewer pipe": ["Dept 01 – Utilities", "Dept 02 – Roads", "Dept 03 – Parks"],
+  "Landscaping": ["Dept 03 – Parks", "Dept 02 – Roads", "Dept 08 – Airport", "Dept 09 – Port", "Dept 10 – Library"],
+  "Uniforms": ["Dept 04 – Public Safety", "Dept 05 – Fire", "Dept 11 – Corrections", "Dept 07 – Waste", "Dept 12 – Transit", "Dept 03 – Parks", "Dept 01 – Utilities"],
 };
 
-const SAMPLE_GENERALISTS = ["Atlantic General Supply", "Metro Wholesale Co.", "Southern Distributors", "Bayside Supply House"];
+const SAMPLE_GENERALISTS = ["Vendor A General Supply", "Vendor B Wholesale", "Vendor C Distributors", "Vendor D Supply House"];
 const SAMPLE_SPECIALISTS = {
-  "Fasteners": ["Bayfront Fasteners", "Dade Bolt & Screw"],
-  "Safety gear (PPE)": ["SafeWork Supply", "Redline Safety"],
-  "Office supplies": ["Paperworks Direct"],
-  "IT hardware": ["Coral Computer Center"],
-  "Janitorial": ["CleanPro Distributors", "Sparkle Supply"],
-  "Fleet parts": ["Route 1 Auto Parts", "Fleetline Parts"],
-  "Water and sewer pipe": ["Utility Pipe Co."],
-  "Landscaping": ["Green Acres Nursery", "Turfline Supply"],
-  "Uniforms": ["Workwear Express"],
+  "Fasteners": ["Example Bolt Co.", "Sample Screw Supply"],
+  "Safety gear (PPE)": ["Demo Safety Gear", "Mock Safety Co."],
+  "Office supplies": ["Example Paper Co."],
+  "IT hardware": ["Sample Computer Store"],
+  "Janitorial": ["Demo Cleaning Supply", "Acme Janitorial"],
+  "Fleet parts": ["Example Auto Parts", "Sample Fleet Supply"],
+  "Water and sewer pipe": ["Demo Pipe Co."],
+  "Landscaping": ["Example Nursery", "Mock Turf Supply"],
+  "Uniforms": ["Sample Workwear"],
 };
 
 function pickWeighted(rng, variants) {
