@@ -48,13 +48,13 @@ Both runs learned a vocabulary of 4,267 words.
 
 ## Spend Grouper
 
-A practical use of the same idea for a county government's ERP data. Purchase lines often describe the same item many ways ("HEX SCREW M8 SS", "Hx Scrw M8 Stainless"). Spend Grouper:
+A practical use of the same idea for a government agency's ERP data. Purchase lines often describe the same item many ways ("HEX SCREW M8 SS", "Hx Scrw M8 Stainless"). Spend Grouper:
 
 - trains Word2Vec (CBOW or skip-gram) in the browser on purchase-line descriptions
 - groups lines that describe the same item
 - flags items bought by 4 or more departments from 3 or more vendors, with at least half the spend off contract, as candidates for a shared contract
 - lists abbreviations the model learned on its own (scrw → screw, glvs → gloves, vlv → valve)
 
-It opens with 6,000 **fictional** purchase lines. These are not real Miami-Dade County records. You can upload your own CSV export and match its columns; the file stays in the browser and is never uploaded anywhere.
+It opens with 6,000 **fictional** purchase lines. You can upload your own CSV export and match its columns; the file stays in the browser and is never uploaded anywhere.
 
 On the sample data, CBOW at strictness 0.70 grouped every line into the correct item type. Flagged groups are leads for a buyer to review, not decisions.
