@@ -1,8 +1,3 @@
-# Netlify publishes the app folder; the main link opens Spend Grouper.
+# Netlify publishes the app folder, whose index.html is Spend Grouper.
 [build]
   publish = "app"
-
-[[redirects]]
-  from = "/"
-  to = "/spend-grouper.html"
-  status = 200

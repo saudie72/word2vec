@@ -8,7 +8,7 @@ Training Word2Vec on Herman Melville's *Moby-Dick* (Project Gutenberg #2701) and
 |---|---|
 | `Word2Vec_Moby_Dick.ipynb` | The notebook, with outputs from both runs and the reflection answers. Open it in Google Colab and run the cells top to bottom. |
 | `images/` | The PCA plots and cosine heatmaps from both runs. |
-| `app/spend-grouper.html` | Spend Grouper, a web app that applies Word2Vec to procurement data. Open it in any browser. |
+| `app/index.html` | Spend Grouper, a web app that applies Word2Vec to procurement data. Open it in any browser. |
 | `app/engine.js` | The app's Word2Vec, grouping and CSV code as a standalone script. |
 
 ## The notebook
